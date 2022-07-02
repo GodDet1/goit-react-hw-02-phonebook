@@ -4,10 +4,13 @@ export const Container = styled.div`
   width: inherit;
 
   & p {
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 30px;
+    font-weight: 300;
     letter-spacing: 2px;
     text-align: center;
+
+    color: #5f5f5f;
+    text-shadow: 1px 1px 0 #7a7a7a;
   }
 `;
 
@@ -27,8 +30,6 @@ export const ListItem = styled.li`
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 
-  text-shadow: 0 0 10px #ffffff;
-
   :not(:last-of-type) {
     margin-bottom: 10px;
   }
@@ -40,8 +41,10 @@ export const ListItem = styled.li`
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1px;
+    color: white;
 
     text-transform: capitalize;
+    text-shadow: 0 0 10px #ffffff;
 
     & span {
       margin-left: 20px;

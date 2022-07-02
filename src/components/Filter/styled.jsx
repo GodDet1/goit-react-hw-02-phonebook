@@ -17,14 +17,12 @@ export const MyInput = styled.input`
 
 export const MyP = styled.p`
   margin-top: 0px;
+  margin-bottom: 10px;
 
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 1px;
   text-align: center;
 
-  color: transparent;
-  background: #414141;
-
-  background-clip: text;
-  text-shadow: 0px 1px 3px #acacac;
+  color: #5f5f5f;
+  text-shadow: 1px 1px 0 #7a7a7a;
 `;
