@@ -3,15 +3,16 @@ import { nanoid } from 'nanoid';
 import InputForm from './InputForm/InputForm';
 import PhoneList from './PhoneList/PhoneList';
 import Filter from './Filter/Filter';
+import { Container, MyHeader } from './styled';
 
 class App extends Component {
   state = {
     contacts: [
-      { id: 1, name: 'nikita Kolotenko', phone: '+3124424' },
-      { id: 2, name: 'marina Palamarchuk', phone: '+312423423424' },
-      { id: 3, name: 'Danylo kolotenko', phone: '+312423423424' },
-      { id: 5, name: 'Ilya Beliy', phone: '+312423423424' },
-      { id: 6, name: 'Ilya Belaya', phone: '+312423423424' },
+      { id: '1', name: 'nikita Kolotenko', phone: '+3124424' },
+      { id: '2', name: 'marina Palamarchuk', phone: '+312423423424' },
+      { id: '3', name: 'Danylo kolotenko', phone: '+312423423424' },
+      { id: '5', name: 'Ilya Beliy', phone: '+312423423424' },
+      { id: '6', name: 'Ira Belaya', phone: '+312423423424' },
     ],
     filter: '',
   };
@@ -57,14 +58,14 @@ class App extends Component {
       this.state.filter !== '' ? this.filterUsers() : this.state.contacts;
 
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Container>
+        <MyHeader>Phonebook</MyHeader>
         <InputForm handleSubmit={this.handleSubmitForm} />
 
-        <h2>Contacts</h2>
+        <MyHeader>Contacts</MyHeader>
         <Filter filter={this.handleFilter} />
         <PhoneList contacts={renderData} deleteUser={this.deleteUser} />
-      </div>
+      </Container>
     );
   }
 }
