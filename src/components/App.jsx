@@ -7,13 +7,7 @@ import { Container, MyHeader } from './styled';
 
 class App extends Component {
   state = {
-    contacts: [
-      { id: '1', name: 'nikita Kolotenko', phone: '+3124424' },
-      { id: '2', name: 'marina Palamarchuk', phone: '+312423423424' },
-      { id: '3', name: 'Danylo kolotenko', phone: '+312423423424' },
-      { id: '5', name: 'Ilya Beliy', phone: '+312423423424' },
-      { id: '6', name: 'Ira Belaya', phone: '+312423423424' },
-    ],
+    contacts: [],
     filter: '',
   };
 
@@ -26,6 +20,8 @@ class App extends Component {
     }
 
     this.setState(prevState => prevState.contacts.push(item));
+
+    e.currentTarget.reset();
   };
 
   handleFilter = e => {
