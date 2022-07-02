@@ -4,6 +4,9 @@ export const Container = styled.div`
   width: inherit;
 
   & p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+
     font-size: 30px;
     font-weight: 300;
     letter-spacing: 2px;
