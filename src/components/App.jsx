@@ -65,7 +65,7 @@ class App extends Component {
 
         <MyHeader>Contacts</MyHeader>
         <Filter filter={this.handleFilter} value={this.state.filter} />
-        <PhoneList contacts={renderData} deleteUser={this.deleteUser} />
+        <Phogit neList contacts={renderData} deleteUser={this.deleteUser} />
       </Container>
     );
   }
