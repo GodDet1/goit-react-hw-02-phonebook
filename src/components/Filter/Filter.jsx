@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import { Container, MyInput, MyP } from './styled';
 
-function Filter({ filter }) {
+function Filter({ filter, value }) {
   return (
     <Container>
       <MyP>Find contacts by name</MyP>
-      <MyInput type="text" onChange={filter} placeholder="Search..." />
+      <MyInput
+        type="text"
+        onChange={filter}
+        placeholder="Search..."
+        value={value}
+      />
     </Container>
   );
 }

@@ -7,7 +7,13 @@ import { Container, MyHeader } from './styled';
 
 class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: '123', name: 'fsdf', phone: '+31425367758' },
+      { id: '154', name: 'fshgfdf', phone: '+31425367758' },
+      { id: '15347623', name: 'fsdfsdf', phone: '+31425367758' },
+      { id: '1347623', name: 'fscvbndf', phone: '+31425367758' },
+      { id: '1153623', name: 'fskjkdf', phone: '+31425367758' },
+    ],
     filter: '',
   };
 
@@ -16,12 +22,12 @@ class App extends Component {
     const item = { id: nanoid(), ...data };
 
     if (this.checkUsers(data)) {
-      return alert(`${data.name} is already in contacts`);
+      alert(`${data.name} is already in contacts`);
+      return false;
     }
 
     this.setState(prevState => prevState.contacts.push(item));
-
-    e.currentTarget.reset();
+    return true;
   };
 
   handleFilter = e => {
@@ -37,10 +43,10 @@ class App extends Component {
     );
   }
 
-  deleteUser = id => {
-    const index = this.state.contacts.findIndex(item => item.id === id);
-
-    this.setState(prevState => prevState.contacts.splice(index, 1));
+  deleteUser = deletedId => {
+    this.setState({
+      contacts: this.state.contacts.filter(({ id }) => id !== deletedId),
+    });
   };
 
   filterUsers() {
@@ -50,8 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const renderData =
-      this.state.filter !== '' ? this.filterUsers() : this.state.contacts;
+    const renderData = this.filterUsers();
 
     return (
       <Container>
@@ -59,7 +64,7 @@ class App extends Component {
         <InputForm handleSubmit={this.handleSubmitForm} />
 
         <MyHeader>Contacts</MyHeader>
-        <Filter filter={this.handleFilter} />
+        <Filter filter={this.handleFilter} value={this.state.filter} />
         <PhoneList contacts={renderData} deleteUser={this.deleteUser} />
       </Container>
     );
